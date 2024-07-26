@@ -1,0 +1,16 @@
+<html>
+  <body>
+    <h2>Mini Message board</h2>
+    <ul> 
+      <% messages.forEach((message, index) => { %>
+        <li><%= message.user %></li>
+        <li><%= message.text %></li>
+        <li><%= message.added %></li>
+        <a href="/<%= message.id %>"><button>Open details</button></a>
+        <br>
+      <% }); %>
+    </ul>
+
+    <a href="/new"><button>Add new</button></a>
+  </body>
+</html>
