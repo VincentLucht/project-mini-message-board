@@ -1,18 +1,28 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
   <body>
-    <h2>Mini Message board</h2>
-    <form method="post" action="/new">
-      <label>
-        Author:
-        <input type="text" name="author">
-      </label>
+    <html>
+      <body>
+        <h2>Mini Message board</h2>
+        <form method="post" action="/new">
+          <label>
+            Name:
+            <input type="text" name="username" required>
+          </label>
 
-      <label>
-        Message:
-        <input type="text" name="message">
-      </label>
+          <label>
+            Description:
+            <input type="text" name="description" required>
+          </label>
 
-      <button type="submit">Submit</button>
-    </form>
+          <button type="submit">Submit</button>
+        </form>
+      </body>
+    </html>
   </body>
 </html>

@@ -1,13 +1,41 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
   <body>
     <h2>Mini Message board</h2>
-    <ul> 
-      <% messages.forEach((message, index) => { %>
-        <li><%= message.user %></li>
-        <li><%= message.text %></li>
-        <li><%= message.added %></li>
-        <a href="/<%= message.id %>"><button>Open details</button></a>
-        <br>
+    <ul>
+      <%
+      function formatAncientDate(date) {
+        if (!(date instanceof Date)) {
+          // If it's not a Date object, try to create one
+          date = new Date(date);
+        }
+        
+        // Check if the date is valid
+        if (isNaN(date.getTime())) {
+          return 'Invalid Date';
+        }
+      
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = date.getMonth();
+        const year = date.getFullYear();
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        return `${day} ${months[month]} ${year}`;
+      }
+      %>
+      %>
+
+      <% users.forEach((user) => { %>
+      <li><%= user.username %></li>
+      <li><%= user.description %></li>
+      <li><%= formatAncientDate(user.date_added) %></li>
+      <a href="/<%= user.id %>"><button>Open details</button></a>
+      <br>
+      <br>
       <% }); %>
     </ul>
 
